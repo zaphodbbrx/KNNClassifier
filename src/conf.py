@@ -1,7 +1,7 @@
 from src.model import KnnModel
 from src.data_utils import ColumnScaler
 
-__all__ = ['steps', 'feats', 'train_csv_path', 'test_csv_path', 'submission_csv', 'saved_models_path']
+__all__ = ['steps', 'feats', 'train_csv_path', 'test_csv_path', 'submission_csv', 'saved_models_path', 'N_NEIGHBORS']
 
 
 N_NEIGHBORS = 11

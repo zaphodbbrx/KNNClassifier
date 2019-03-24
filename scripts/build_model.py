@@ -1,7 +1,7 @@
 import os
 import click
 import pickle
-
+import numpy as np
 from src.model import ModelPipeline
 from src.data_utils import read_csv_data, train_test_split
 from src.metrics import accuracy
@@ -16,9 +16,13 @@ def build_model():
 
     assert all([f in raw_data.columns.tolist() for f in feats]), 'not all feature columns are present in train data'
     assert 'y' in raw_data, 'target column is not present in data'
+    assert raw_data.shape[0] > N_NEIGHBORS
 
     X = raw_data[feats].values
     y = raw_data['y'].values
+
+    assert not (X == X[0]).all(), 'all rows in training data are the same'
+    assert np.unique(y).shape[0]>1, 'target data must contain more than 1 unique value'
 
     X_train, y_train, X_val, y_val = train_test_split(X, y, 0.2)
 

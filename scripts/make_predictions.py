@@ -15,6 +15,8 @@ def make_predictions():
         raw_data = read_csv_data(train_csv_path)
         assert all([f in raw_data.columns.tolist() for f in feats]), 'not all feature columns are present in train data'
         assert 'y' in raw_data, 'target column is not present in data'
+        assert raw_data.shape[0] > N_NEIGHBORS
+
         X = raw_data[feats].values
         y = raw_data['y'].values
         mdl = ModelPipeline(steps)

@@ -11,7 +11,9 @@ def read_csv_data(csv_path: str) -> pd.DataFrame:
     try:
         df = pd.read_csv(csv_path)
     except Exception:
-        raise ValueError('csv file seems to have wrong format')
+        raise ValueError('csv file does not exist or seems to have wrong format')
+    df = df.replace([np.inf, -np.inf], np.nan).fillna(0)
+    assert all(df.apply(lambda s: pd.to_numeric(s, errors='coerce').notnull().all())), 'data contains invalid (non-numeric) values'
     return df
 
 
