@@ -14,7 +14,7 @@ def build_model():
     print('reading/preparing train data')
     raw_data = read_csv_data(train_csv_path)
 
-    assert all([f in raw_data.columns.tolist() for f in feats]), 'not all feature columns are present in data'
+    assert all([f in raw_data.columns.tolist() for f in feats]), 'not all feature columns are present in train data'
     assert 'y' in raw_data, 'target column is not present in data'
 
     X = raw_data[feats].values

@@ -13,6 +13,8 @@ def make_predictions():
     """Скрипт для выполнения предсказаний"""
     if not os.path.exists(os.path.join(saved_models_path, 'mdl.p')):
         raw_data = read_csv_data(train_csv_path)
+        assert all([f in raw_data.columns.tolist() for f in feats]), 'not all feature columns are present in train data'
+        assert 'y' in raw_data, 'target column is not present in data'
         X = raw_data[feats].values
         y = raw_data['y'].values
         mdl = ModelPipeline(steps)
@@ -21,6 +23,8 @@ def make_predictions():
         mdl = pickle.load(open(os.path.join(saved_models_path, 'mdl.p'), 'rb'))
 
     predictions = read_csv_data(test_csv_path)
+
+    assert all([f in predictions.columns.tolist() for f in feats]), 'not all feature columns are present in test data'
 
     X_test = predictions[feats].values
 
