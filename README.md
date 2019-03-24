@@ -11,6 +11,8 @@
 
 `python build_model.py`
 
+При этом данные для обучения (файлы train.csv, test.csv, sample_submission.csv) должны быть предварительно помещены в папку data
+
 Для выполнения предсказаний:
 
 `python make_predictions.py`
