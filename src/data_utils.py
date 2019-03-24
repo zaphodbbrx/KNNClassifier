@@ -17,6 +17,7 @@ def read_csv_data(csv_path: str) -> pd.DataFrame:
 
 def train_test_split(x: np.array, y: np.array, test_size: float) -> Tuple[np.array, np.array, np.array, np.array]:
     """Получение тренировочной и валидационной выборок"""
+    assert x.shape[0] == y.shape[0], 'shapes of X and y must be equal'
     idx = np.arange(x.shape[0])
     np.random.shuffle(idx)
     test_size = int(x.shape[0]*test_size)

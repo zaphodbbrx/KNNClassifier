@@ -1,4 +1,4 @@
-**Классификатор на основе метода к ближайших соседейЖ**
+**Классификатор на основе метода k-ближайших соседей**
 
 Зависимости:
 * python 3.6
@@ -9,11 +9,11 @@
 
 Для обучения и сохранения модели можно использовать скрипт:
 
-`python build_model.py`
+`python -m scripts.build_model`
 
 При этом данные для обучения (файлы train.csv, test.csv, sample_submission.csv) должны быть предварительно помещены в папку data
 
 Для выполнения предсказаний:
 
-`python make_predictions.py`
+`python -m scripts.make_predictions`
 
