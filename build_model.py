@@ -2,10 +2,10 @@ import os
 import click
 import pickle
 
-from model import ModelPipeline
-from data_utils import read_csv_data, train_test_split
-from metrics import accuracy
-from conf import *
+from src.model import ModelPipeline
+from src.data_utils import read_csv_data, train_test_split
+from src.metrics import accuracy
+from src.conf import *
 
 
 @click.command()

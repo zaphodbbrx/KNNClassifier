@@ -1,5 +1,5 @@
-from model import KnnModel
-from data_utils import ColumnScaler
+from src.model import KnnModel
+from src.data_utils import ColumnScaler
 
 __all__ = ['steps', 'feats', 'train_csv_path', 'test_csv_path', 'submission_csv', 'saved_models_path']
 

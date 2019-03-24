@@ -3,7 +3,7 @@ from typing import Tuple
 import pandas as pd
 import numpy as np
 
-from model import BaseModel
+from src.model import BaseModel
 
 
 def read_csv_data(csv_path: str) -> pd.DataFrame:

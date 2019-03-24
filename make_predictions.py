@@ -3,9 +3,9 @@ import csv
 import click
 import pickle
 
-from model import ModelPipeline
-from data_utils import read_csv_data
-from conf import *
+from src.model import ModelPipeline
+from src.data_utils import read_csv_data
+from src.conf import *
 
 
 @click.command()
